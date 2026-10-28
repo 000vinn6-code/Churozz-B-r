@@ -4,406 +4,630 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Churrobär!! — Small Bites, Big Happiness</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>Churozz!! — Sweet Little Things</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --cream: #f1dfc3;
-  --brown: #54290f;
-  --pink: #ff858a;
-  --white: #fffaf0;
+  --bg: #f0dfc5;
+  --paper: #fff9ef;
+  --brown: #50280f;
+  --pink: #ff888e;
+  --muted: #a78567;
+  --line: #d8bea0;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
-html { scroll-behavior: smooth; }
-
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 body {
-  background: var(--cream);
+  background: var(--bg);
   color: var(--brown);
   font-family: 'Nunito', sans-serif;
+  overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+
+::selection { background: var(--pink); color: white; }
+
+.wrap { max-width: 1120px; margin: auto; padding: 0 7%; }
+
+/* NAVIGATION */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+.logo {
+  font: 700 27px 'Fredoka', sans-serif;
+  letter-spacing: -1px;
+}
+.logo span { color: var(--pink); }
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 12px;
+  font-weight: 900;
+}
+.nav-right a:first-child { opacity: .7; }
+.nav-cta {
+  padding: 11px 18px;
+  background: var(--brown);
+  color: white;
+  border-radius: 4px 14px 4px 14px;
+  transition: .2s;
+}
+.nav-cta:hover { background: #7b4828; transform: rotate(-2deg); }
+
+/* HERO */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr .85fr;
+  align-items: center;
+  gap: 55px;
+  padding-top: 38px;
+  padding-bottom: 90px;
+}
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--line);
+  padding: 8px 13px;
+  border-radius: 50px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.kicker i { color: var(--pink); font-size: 16px; font-style: normal; }
+
+h1 {
+  font: 700 clamp(57px, 8vw, 98px)/.87 'Fredoka', sans-serif;
+  letter-spacing: -4px;
+}
+h1 .line-two {
+  display: block;
+  color: var(--pink);
+  transform: rotate(-3deg);
+  transform-origin: left center;
+  margin-top: 15px;
+}
+.hero-description {
+  font-size: 13px;
+  line-height: 2;
+  max-width: 350px;
+  margin-top: 28px;
+  color: #795638;
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+  margin-top: 28px;
+}
+.btn {
+  display: inline-block;
+  background: var(--brown);
+  color: white;
+  padding: 15px 23px;
+  border-radius: 5px 18px 5px 18px;
+  font-size: 12px;
+  font-weight: 900;
+  transition: .25s;
+}
+.btn:hover { transform: translateY(-4px) rotate(-1deg); }
+.text-link {
+  font-size: 11px;
+  font-weight: 900;
+  border-bottom: 1px dashed var(--brown);
+  padding-bottom: 5px;
+}
+.tiny-note {
+  margin-top: 32px;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: .4px;
 }
 
-a { text-decoration: none; color: inherit; }
+/* PHOTO COLLAGE */
+.visual {
+  position: relative;
+  padding: 0 14px 24px 0;
+}
+.photo {
+  height: 470px;
+  position: relative;
+  overflow: hidden;
+  border: 9px solid var(--paper);
+  border-radius: 48% 48% 8px 8px;
+  transform: rotate(2deg);
+  box-shadow: 8px 12px 0 #b89a78;
+}
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform .5s;
+}
+.photo:hover img { transform: scale(1.04); }
 
-nav {
-  max-width: 1000px;
-  margin: auto;
-  padding: 24px 7%;
+.tape {
+  position: absolute;
+  width: 95px;
+  height: 26px;
+  background: #ffb9adbd;
+  top: -9px;
+  left: 35%;
+  transform: rotate(-7deg);
+  z-index: 2;
+}
+.sticker {
+  position: absolute;
+  right: -15px;
+  bottom: 30px;
+  background: var(--pink);
+  color: white;
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font: 600 19px/1.15 'Fredoka', sans-serif;
+  transform: rotate(10deg);
+  border: 4px solid var(--bg);
+  box-shadow: 0 4px 0 #d56c72;
+}
+.doodle-heart {
+  position: absolute;
+  right: 8px;
+  top: -45px;
+  color: var(--pink);
+  font-size: 63px;
+  transform: rotate(15deg);
+}
+.photo-label {
+  position: absolute;
+  bottom: 5px;
+  left: -24px;
+  z-index: 3;
+  padding: 11px 15px;
+  background: var(--paper);
+  border: 1px dashed var(--pink);
+  font-size: 10px;
+  font-weight: 900;
+  transform: rotate(-5deg);
+}
+
+/* TICKER */
+.ticker {
+  background: var(--brown);
+  color: var(--paper);
+  overflow: hidden;
+  padding: 14px 0;
+  transform: rotate(-1.5deg) scale(1.02);
+  border-top: 2px dashed #ffffff55;
+  border-bottom: 2px dashed #ffffff55;
+}
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: move 28s linear infinite;
+}
+.ticker-track span {
+  font: 500 17px 'Fredoka', sans-serif;
+  padding: 0 22px;
+  white-space: nowrap;
+}
+.ticker-track b { color: var(--pink); }
+@keyframes move { to { transform: translateX(-50%); } }
+
+/* MENU */
+.menu { padding-top: 105px; padding-bottom: 90px; }
+.section-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 25px;
+  margin-bottom: 35px;
+}
+.overline {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+h2 {
+  font: 600 clamp(36px, 5vw, 54px)/1 'Fredoka', sans-serif;
+  letter-spacing: -1.5px;
+}
+.section-top h2 span { color: var(--pink); }
+.section-desc {
+  max-width: 225px;
+  font-size: 11px;
+  line-height: 1.9;
+  color: #866448;
+}
+
+/* HANDMADE PRICE SHEETS */
+.price-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 17px;
+  align-items: start;
+}
+.price-card {
+  position: relative;
+  padding: 24px 19px 21px;
+  min-height: 190px;
+  background: var(--paper);
+  border: 1px solid #f5b9ad;
+  outline: 1px dashed #f5b9ad;
+  outline-offset: -7px;
+  transition: .25s;
+}
+.price-card:nth-child(1) { transform: rotate(-2deg); }
+.price-card:nth-child(2) { transform: translateY(15px) rotate(1deg); }
+.price-card:nth-child(3) { transform: rotate(-1deg); }
+.price-card:hover { transform: translateY(-6px) rotate(0); }
+
+.card-number {
+  position: absolute;
+  top: 16px;
+  right: 17px;
+  color: #c9ad91;
+  font-size: 10px;
+  font-weight: 900;
+}
+.card-emoji { font-size: 25px; }
+.price-card h3 {
+  font: 600 24px 'Fredoka', sans-serif;
+  margin-top: 12px;
+}
+.price-card .price {
+  font: 600 clamp(22px, 3vw, 31px) 'Fredoka', sans-serif;
+  color: var(--pink);
+  margin-top: 4px;
+  white-space: nowrap;
+}
+.price-card p {
+  margin-top: 9px;
+  font-size: 10px;
+  color: #96775c;
+}
+.unit-price {
+  display: inline-block;
+  margin-top: 32px;
+  padding: 10px 16px;
+  background: #e8d1b4;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+/* LITTLE STORY */
+.story {
+  padding: 40px 0 90px;
+}
+.story-inner {
+  position: relative;
+  background: #e6c6a5;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 28px;
+  align-items: center;
+  border-radius: 5px 40px 5px 40px;
+  overflow: hidden;
+}
+.story-icon {
+  font-size: 65px;
+  transform: rotate(-10deg);
+}
+.story h2 { font-size: 34px; }
+.story h2 span { color: #b96f6a; }
+.story p {
+  margin-top: 12px;
+  max-width: 440px;
+  font-size: 12px;
+  line-height: 2;
+  color: #70482d;
+}
+.story-scribble {
+  position: absolute;
+  right: 15px;
+  top: -16px;
+  color: #ff9a9a;
+  font: 70px 'Fredoka', sans-serif;
+  transform: rotate(20deg);
+}
+
+/* ORDER */
+.order {
+  padding: 25px 0 95px;
+}
+.order-inner {
+  background: var(--brown);
+  color: var(--paper);
+  padding: 52px 35px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.order-inner::before, .order-inner::after {
+  content: "♡";
+  position: absolute;
+  font: 100px 'Fredoka', sans-serif;
+  color: #ffffff12;
+}
+.order-inner::before { left: -5px; top: -30px; }
+.order-inner::after { right: -5px; bottom: -40px; }
+.order-inner .overline { color: #e9b9a8; }
+.order-inner h2 { font-size: clamp(36px, 5vw, 52px); }
+.order-inner h2 span { color: var(--pink); }
+.order-inner p {
+  font-size: 12px;
+  line-height: 1.9;
+  margin: 17px auto 25px;
+  color: #e6d2be;
+  max-width: 390px;
+}
+.order-inner .btn {
+  background: var(--pink);
+  color: var(--brown);
+  position: relative;
+  z-index: 1;
+}
+.order-inner .btn:hover { background: white; }
+
+/* CONTACT & FOOTER */
+.contact {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
+  padding: 22px 0 28px;
+  border-top: 1px dashed var(--line);
 }
-
-.logo {
-  font-family: 'Fredoka', sans-serif;
-  font-size: 25px;
-  font-weight: 700;
+.contact strong {
+  font: 600 20px 'Fredoka', sans-serif;
 }
-
-.logo span { color: var(--pink); }
-
-.nav-link {
-  font-size: 13px;
-  font-weight: 800;
-  border-bottom: 2px dashed var(--pink);
-  padding-bottom: 4px;
-}
-
-main {
-  max-width: 1000px;
-  margin: auto;
-  padding: 25px 7% 70px;
-}
-
-.hero {
-  display: grid;
-  grid-template-columns: 1fr 0.9fr;
-  gap: 45px;
-  align-items: center;
-}
-
-.tag {
-  display: inline-block;
-  background: var(--white);
-  padding: 8px 15px;
-  border: 1px dashed var(--pink);
-  border-radius: 30px;
-  font-size: 11px;
-  font-weight: 900;
-  letter-spacing: 1px;
-  margin-bottom: 20px;
-}
-
-h1 {
-  font-family: 'Fredoka', sans-serif;
-  font-size: clamp(48px, 7vw, 76px);
-  line-height: 0.98;
-  letter-spacing: -2px;
-}
-
-h1 span { color: var(--pink); }
-
-.subtitle {
-  margin: 22px 0;
-  font-size: 15px;
-  line-height: 1.9;
-  max-width: 380px;
-}
-
-.button {
-  display: inline-block;
-  background: var(--brown);
-  color: white;
-  padding: 14px 23px;
-  border-radius: 30px;
-  font-weight: 900;
-  font-size: 13px;
-  transition: .2s;
-}
-
-.button:hover {
-  background: #78421f;
-  transform: translateY(-3px);
-}
-
-.hero-photo {
-  position: relative;
-}
-
-.hero-photo img {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  border-radius: 48% 48% 25px 25px;
-  border: 6px solid var(--white);
-  outline: 2px dashed var(--pink);
-  outline-offset: 5px;
-}
-
-.sticker {
-  position: absolute;
-  bottom: 20px;
-  left: -25px;
-  background: var(--pink);
-  color: white;
-  padding: 14px 18px;
-  border-radius: 20px;
-  font-family: 'Fredoka', sans-serif;
-  font-size: 17px;
-  font-weight: 600;
-  transform: rotate(-7deg);
-}
-
-.section {
-  margin-top: 90px;
-  scroll-margin-top: 30px;
-}
-
-.section-heading {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.section-heading h2 {
-  font-family: 'Fredoka', sans-serif;
-  font-size: clamp(32px, 5vw, 45px);
-}
-
-.section-heading p {
-  font-size: 13px;
-  margin-top: 8px;
-  line-height: 1.8;
-}
-
-.prices {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-}
-
-.price-card {
-  background: var(--white);
-  padding: 25px 12px;
-  text-align: center;
-  border: 2px dashed #f3aaa0;
-  border-radius: 22px;
-  transition: .2s;
-}
-
-.price-card:hover { transform: translateY(-5px) rotate(-1deg); }
-
-.price-card .emoji { font-size: 25px; }
-
-.price-card h3 {
-  font-family: 'Fredoka', sans-serif;
-  font-size: 24px;
-  margin: 8px 0;
-}
-
-.price {
-  color: var(--pink);
-  font-family: 'Fredoka', sans-serif;
-  font-size: clamp(19px, 3vw, 27px);
-  font-weight: 700;
-}
-
-.unit {
-  font-size: 11px;
-  margin-top: 7px;
-  color: #95745b;
-}
-
-.note {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 12px;
-}
-
-.about {
-  background: #e7c9a8;
-  border-radius: 25px;
-  padding: 35px 25px;
-  text-align: center;
-}
-
-.about h2 {
-  font-family: 'Fredoka', sans-serif;
-  font-size: 30px;
-  margin-bottom: 12px;
-}
-
-.about p {
-  font-size: 13px;
-  line-height: 2;
-  max-width: 520px;
-  margin: auto;
-}
-
-.order {
-  text-align: center;
-  padding: 40px 15px;
-}
-
-.order h2 {
-  font-family: 'Fredoka', sans-serif;
-  font-size: clamp(32px, 5vw, 43px);
-}
-
-.order p {
-  font-size: 13px;
-  line-height: 1.8;
-  margin: 12px auto 22px;
-}
-
-.contact {
-  text-align: center;
-  padding: 22px 10px;
-  border-top: 1px dashed #b99c7a;
-}
-
 .contact p {
-  font-size: 12px;
-  margin-bottom: 10px;
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 4px;
 }
-
-.contact a {
-  font-weight: 900;
-  color: #388b39;
-}
-
-footer {
-  text-align: center;
-  padding: 22px;
-  background: var(--brown);
-  color: var(--white);
+.wa {
+  background: #388b43;
+  color: white;
+  padding: 12px 17px;
   font-size: 11px;
+  font-weight: 900;
+  border-radius: 5px 15px 5px 15px;
 }
+footer {
+  background: #e4ceb0;
+  padding: 20px 7%;
+  text-align: center;
+  font-size: 10px;
+  color: #866448;
+}
+footer b { color: var(--brown); }
 
-@media (max-width: 650px) {
-  nav { padding: 20px 6%; }
-  .logo { font-size: 22px; }
-  main { padding: 20px 6% 50px; }
+/* RESPONSIVE */
+@media (max-width: 700px) {
+  .wrap { padding: 0 6%; }
+  nav { padding-top: 20px; padding-bottom: 20px; }
+  .logo { font-size: 23px; }
+  .nav-right { gap: 12px; font-size: 10px; }
+  .nav-cta { padding: 10px 12px; }
 
   .hero {
     grid-template-columns: 1fr;
-    gap: 35px;
+    gap: 42px;
+    padding-top: 25px;
+    padding-bottom: 65px;
   }
-
   .hero-copy { text-align: center; }
-  .subtitle { margin: 20px auto; }
-  .hero-photo { width: 85%; margin: auto; }
-  .sticker { left: -18px; }
+  h1 { font-size: clamp(62px, 15vw, 88px); letter-spacing: -3px; }
+  h1 .line-two { transform: rotate(-2deg); transform-origin: center; }
+  .hero-description { margin: 25px auto 0; }
+  .hero-actions { justify-content: center; }
+  .tiny-note { margin-top: 23px; }
+  .visual { width: 84%; margin: auto; }
+  .photo { height: min(110vw, 430px); }
+  .sticker { width: 95px; height: 95px; font-size: 17px; right: -24px; }
 
-  .section { margin-top: 65px; }
+  .menu { padding-top: 80px; padding-bottom: 65px; }
+  .section-top { display: block; }
+  .section-desc { margin-top: 14px; }
+  .price-list { grid-template-columns: 1fr; gap: 20px; padding: 5px 7px; }
+  .price-card { min-height: 0; padding: 24px; }
+  .price-card:nth-child(1), .price-card:nth-child(2),
+  .price-card:nth-child(3) { transform: none; }
+  .price-card:hover { transform: translateY(-4px); }
+  .price-card h3 { font-size: 26px; }
+  .price-card .price { font-size: 32px; }
+  .unit-price { margin-top: 23px; }
 
-  .prices { grid-template-columns: 1fr; gap: 12px; }
-  .price-card {
-    padding: 17px;
-    display: grid;
-    grid-template-columns: 35px 1fr;
-    text-align: left;
-    align-items: center;
-    column-gap: 10px;
-  }
+  .story { padding-bottom: 65px; }
+  .story-inner { grid-template-columns: 1fr; padding: 30px 25px; gap: 8px; }
+  .story-icon { font-size: 45px; }
+  .story h2 { font-size: 34px; }
 
-  .price-card .emoji { grid-row: span 3; }
-  .price-card h3 { margin: 0; font-size: 22px; }
-  .price { font-size: 23px; }
-  .unit { margin-top: 2px; }
+  .order { padding-bottom: 65px; }
+  .order-inner { padding: 42px 20px; }
+  .contact { align-items: flex-start; flex-direction: column; }
+}
 
-  .about { padding: 30px 20px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
 }
 </style>
 </head>
 
 <body>
 
-<nav>
-  <a href="#" class="logo">Churrobär<span>!!</span> ♡</a>
-  <a href="#harga" class="nav-link">OUR MENU ↓</a>
-</nav>
+<div class="wrap">
+  <nav>
+    <a href="#" class="logo">Churozz<span>!!</span> ♡</a>
+    <div class="nav-right">
+      <a href="#menu">the menu</a>
+      <a href="#order" class="nav-cta">GET YOURS ↗</a>
+    </div>
+  </nav>
 
-<main>
-  <section class="hero">
+  <section class="hero" id="home">
     <div class="hero-copy">
-      <span class="tag">♡ SMALL BATCH, BIG LOVE ♡</span>
+      <div class="kicker"><i>✳</i> a little treat for your day</div>
 
-      <h1>Small Bites,<br><span>Big Happiness!</span></h1>
+      <h1>
+        Small bites,
+        <span class="line-two">big happy!</span>
+      </h1>
 
-      <p class="subtitle">
-        Meet our little bear donuts! 🧸
-        Golden, sugary, and made to sweeten your day.
-        One bite, and suddenly everything feels a little sweeter.
+      <p class="hero-description">
+        Not your ordinary churros. Meet our little bear-shaped
+        cuties: golden, sugary, and almost too adorable to eat.
+        A tiny sweet thing to make your day a whole lot better. ♡
       </p>
 
-      <a href="#harga" class="button">Find your sweet box ↗</a>
+      <div class="hero-actions">
+        <a href="#menu" class="btn">Find your bear ↓</a>
+        <a href="#story" class="text-link">OUR LITTLE STORY ↗</a>
+      </div>
+
+      <p class="tiny-note">✿ made with love & a sprinkle of sugar</p>
     </div>
 
-    <div class="hero-photo">
-      <!-- Simpan foto donat kamu dengan nama donat.jpg -->
-      <img src="donat.jpg" alt="Donat beruang Churrobär">
-      <div class="sticker">Sweet bites ♡</div>
+    <div class="visual">
+      <div class="tape"></div>
+      <div class="doodle-heart">♡</div>
+      <div class="photo">
+        <img src="donat.jpg" alt="Churozz bear-shaped churros with pink dip">
+      </div>
+      <div class="sticker">sweet<br>bites!<br>♡</div>
+      <div class="photo-label">001 — THE LITTLE BEARS CLUB</div>
     </div>
   </section>
+</div>
 
-  <section class="section" id="harga">
-    <div class="section-heading">
-      <h2>A little box of happiness 🎀</h2>
-      <p>Pick your favorite bundle!</p>
+<div class="ticker">
+  <div class="ticker-track">
+    <span>HAPPY TUMMY, HAPPY HEART <b>✳</b></span>
+    <span>LITTLE BEARS, BIG LOVE <b>♡</b></span>
+    <span>ONE BITE AT A TIME <b>✳</b></span>
+    <span>HAPPY TUMMY, HAPPY HEART <b>♡</b></span>
+    <span>LITTLE BEARS, BIG LOVE <b>✳</b></span>
+    <span>ONE BITE AT A TIME <b>♡</b></span>
+  </div>
+</div>
+
+<div class="wrap">
+  <section class="menu" id="menu">
+    <div class="section-top">
+      <div>
+        <p class="overline">✳ THE SWEET LITTLE MENU</p>
+        <h2>Pick your <span>pack!</span></h2>
+      </div>
+      <p class="section-desc">
+        A few little bears, a whole lot of joy.
+        Which pack is calling your name?
+      </p>
     </div>
 
-    <div class="prices">
-      <div class="price-card">
-        <div class="emoji">🍩</div>
-        <h3>3 pcs</h3>
+    <div class="price-list">
+      <article class="price-card">
+        <span class="card-number">NO. 01</span>
+        <div class="card-emoji">🍪</div>
+        <h3>The Mini Pack</h3>
         <div class="price">Rp12.000</div>
-        <div class="unit">Perfect for a little treat</div>
-      </div>
+        <p>3 pcs · A little happiness</p>
+      </article>
 
-      <div class="price-card">
-        <div class="emoji">🍩</div>
-        <h3>5 pcs</h3>
+      <article class="price-card">
+        <span class="card-number">NO. 02</span>
+        <div class="card-emoji">🎀</div>
+        <h3>The Happy Pack</h3>
         <div class="price">Rp18.000</div>
-        <div class="unit">More bears, more happiness</div>
-      </div>
+        <p>5 pcs · More bears to love</p>
+      </article>
 
-      <div class="price-card">
-        <div class="emoji">🍩</div>
-        <h3>7 pcs</h3>
+      <article class="price-card">
+        <span class="card-number">NO. 03</span>
+        <div class="card-emoji">🧸</div>
+        <h3>The Party Pack</h3>
         <div class="price">Rp25.000</div>
-        <div class="unit">A whole lot of sweetness</div>
-      </div>
+        <p>7 pcs · Share the sweetness</p>
+      </article>
     </div>
 
-    <p class="note">Want just one? ♡ Rp4.000 / pcs</p>
+    <div style="text-align:center">
+      <span class="unit-price">JUST ONE BEAR? Rp4.000 / PCS ♡</span>
+    </div>
   </section>
 
-  <section class="section about">
-    <h2>Too cute to eat? 🧸</h2>
-    <p>
-      Little bear-shaped donuts, a golden sugar coating,
-      and sweet moments worth sharing.
-      Whether it's a treat for yourself or a gift for someone special,
-      our little bears are here to make your day sweeter.
-      <br><strong>Made with love, served with a little happiness ♡</strong>
-    </p>
+  <section class="story" id="story">
+    <div class="story-inner">
+      <div class="story-icon">🧸</div>
+      <div>
+        <p class="overline">A LITTLE NOTE FROM US</p>
+        <h2>Too cute to eat? <span>Never!</span></h2>
+        <p>
+          We turn everyone's favorite sweet treat into little bear-shaped
+          happiness. Crunchy, sugary, and made to brighten your little
+          moments. Perfect for sharing, gifting, or keeping all to yourself.
+          No judgment here. ♡
+        </p>
+      </div>
+      <div class="story-scribble">〰</div>
+    </div>
   </section>
 
-  <section class="section order" id="order">
-    <span class="tag">PRE-ORDER IS OPEN ♡</span>
-    <h2>Your bears are waiting!</h2>
-    <p>
-      Ready to adopt your little bears? 🐻<br>
-      Fill in the order form and let the sweetness begin.
-    </p>
+  <section class="order" id="order">
+    <div class="order-inner">
+      <p class="overline">YOUR LITTLE BEARS ARE WAITING</p>
+      <h2>Let's make today <span>sweeter.</span></h2>
+      <p>
+        Pick your favorite pack, fill in the pre-order form,
+        and let the little happiness come your way!
+      </p>
 
-    <!-- GANTI LINK INI DENGAN LINK GOOGLE FORM KAMU -->
-    <a
-      href="GANTI_DENGAN_LINK_GOOGLE_FORM"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="button"
-    >
-      ORDER NOW ♡
-    </a>
+      <!-- GANTI LINK INI DENGAN LINK GOOGLE FORM -->
+      <a
+        href="GANTI_DENGAN_LINK_GOOGLE_FORM"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn"
+      >RESERVE YOUR BEARS ♡ ↗</a>
+    </div>
   </section>
 
   <section class="contact">
-    <p>Questions? Let's talk! 💌</p>
-    <!-- Nomor WhatsApp dari poster -->
-    <a href="https://wa.me/6285161115876" target="_blank">
-      WhatsApp us ↗
+    <div>
+      <strong>Say hello! 💌</strong>
+      <p>Questions about your order? We're just a message away.</p>
+    </div>
+    <a class="wa" href="https://wa.me/6285161115876" target="_blank" rel="noopener noreferrer">
+      WHATSAPP US ↗
     </a>
   </section>
-</main>
+</div>
 
 <footer>
-  Churrobär!! ♡ Small Bites, Big Happiness
-  <br><br>
-  Made with love & a little sugar.
+  <b>Churozz!!</b> ♡ Small Bites, Big Happiness.
+  <br>Made with a little sugar and a lot of love.
 </footer>
 
 </body>
