@@ -2,1290 +2,409 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f8f2e8">
-
-  <title>Bear Bites — Little Donuts, Big Love</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
-
-  <style>
-    /* ==============================
-       BEAR BITES — CUSTOMIZE HERE
-    ============================== */
-
-    :root {
-      --cream: #f8f2e8;
-      --paper: #fffaf2;
-      --brown: #573923;
-      --brown-light: #80644c;
-      --pink: #eaa6a4;
-      --pink-light: #f7d8d0;
-      --green: #7b8462;
-      --line: #e9ddce;
-      --font-body: "DM Sans", sans-serif;
-      --font-title: "Playfair Display", serif;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 90px;
-    }
-
-    body {
-      background: var(--cream);
-      color: var(--brown);
-      font-family: var(--font-body);
-      overflow-x: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font: inherit;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    ::selection {
-      background: var(--pink-light);
-      color: var(--brown);
-    }
-
-    /* Announcement strip */
-
-    .announcement {
-      background: var(--brown);
-      color: var(--cream);
-      text-align: center;
-      padding: 10px 16px;
-      font-size: 10px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .announcement span {
-      color: var(--pink-light);
-      padding: 0 5px;
-    }
-
-    /* Navigation */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(248, 242, 232, 0.94);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(87, 57, 35, 0.08);
-    }
-
-    .navbar {
-      max-width: 1200px;
-      height: 76px;
-      margin: auto;
-      padding: 0 6%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .logo {
-      font-family: var(--font-title);
-      font-size: 27px;
-      font-weight: 700;
-      letter-spacing: -1.5px;
-      white-space: nowrap;
-    }
-
-    .logo span {
-      color: #c9857d;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 34px;
-      font-size: 12px;
-      color: var(--brown-light);
-    }
-
-    .nav-links a {
-      transition: color .2s;
-    }
-
-    .nav-links a:hover {
-      color: #c9857d;
-    }
-
-    .nav-cta {
-      background: var(--brown);
-      color: white;
-      padding: 13px 21px;
-      border-radius: 3px;
-      font-size: 11px;
-      letter-spacing: .5px;
-      transition: .25s;
-      white-space: nowrap;
-    }
-
-    .nav-cta:hover {
-      background: #7b5236;
-      transform: translateY(-2px);
-    }
-
-    /* Hero */
-
-    .hero {
-      max-width: 1200px;
-      margin: auto;
-      padding: 66px 6% 76px;
-      display: grid;
-      grid-template-columns: .88fr 1.12fr;
-      align-items: center;
-      gap: 55px;
-    }
-
-    .eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-transform: uppercase;
-      font-size: 10px;
-      letter-spacing: 2.4px;
-      color: var(--brown-light);
-      margin-bottom: 24px;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 28px;
-      height: 1px;
-      background: #bd8a71;
-    }
-
-    h1, h2, h3 {
-      font-family: var(--font-title);
-      font-weight: 500;
-    }
-
-    .hero h1 {
-      font-size: clamp(49px, 6vw, 79px);
-      line-height: 1.06;
-      letter-spacing: -3px;
-      margin-bottom: 24px;
-    }
-
-    .hero h1 em {
-      color: #c77e77;
-      font-weight: 500;
-    }
-
-    .hero-description {
-      max-width: 360px;
-      color: var(--brown-light);
-      font-size: 13px;
-      line-height: 2;
-      margin-bottom: 30px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 22px;
-    }
-
-    .button-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 13px;
-      padding: 17px 24px;
-      background: var(--brown);
-      color: white;
-      border: 1px solid var(--brown);
-      font-size: 11px;
-      letter-spacing: .6px;
-      transition: .25s;
-    }
-
-    .button-primary:hover {
-      background: #7b5236;
-      transform: translateY(-3px);
-    }
-
-    .text-link {
-      font-size: 11px;
-      border-bottom: 1px solid #b99c80;
-      padding-bottom: 5px;
-    }
-
-    .hero-note {
-      margin-top: 38px;
-      font-size: 10px;
-      color: #8e7964;
-      letter-spacing: .5px;
-    }
-
-    .hero-note span {
-      color: #bc7770;
-      margin-right: 7px;
-    }
-
-    /* Product photograph */
-
-    .hero-visual {
-      position: relative;
-      padding: 0 13px 18px 0;
-    }
-
-    .photo-frame {
-      position: relative;
-      background: #e8d4bb;
-      overflow: hidden;
-      aspect-ratio: 4 / 4.35;
-      border-radius: 48% 48% 3px 3px / 34% 34% 3px 3px;
-    }
-
-    .photo-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      transition: transform .8s;
-    }
-
-    .photo-frame:hover img {
-      transform: scale(1.035);
-    }
-
-    .photo-caption {
-      position: absolute;
-      right: -8px;
-      bottom: 44px;
-      z-index: 2;
-      width: 112px;
-      height: 112px;
-      border-radius: 50%;
-      background: var(--pink-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      transform: rotate(9deg);
-      box-shadow: 0 7px 20px #57392313;
-    }
-
-    .photo-caption p {
-      font-family: var(--font-title);
-      font-size: 17px;
-      line-height: 1.25;
-    }
-
-    .photo-caption small {
-      display: block;
-      font-family: var(--font-body);
-      font-size: 8px;
-      letter-spacing: 1px;
-      margin-top: 5px;
-    }
-
-    .photo-number {
-      position: absolute;
-      top: 23px;
-      left: -19px;
-      z-index: 2;
-      writing-mode: vertical-rl;
-      transform: rotate(180deg);
-      font-size: 9px;
-      letter-spacing: 3px;
-      color: var(--brown-light);
-    }
-
-    /* Scrolling marquee */
-
-    .marquee {
-      overflow: hidden;
-      background: var(--pink-light);
-      border-top: 1px solid #f0c6be;
-      border-bottom: 1px solid #f0c6be;
-      padding: 16px 0;
-    }
-
-    .marquee-track {
-      width: max-content;
-      display: flex;
-      align-items: center;
-      animation: scroll 30s linear infinite;
-    }
-
-    .marquee-track span {
-      font-family: var(--font-title);
-      font-size: 16px;
-      font-style: italic;
-      white-space: nowrap;
-      padding: 0 26px;
-    }
-
-    .marquee-track b {
-      color: #bd7770;
-      font-size: 14px;
-    }
-
-    @keyframes scroll {
-      to { transform: translateX(-50%); }
-    }
-
-    /* Shared sections */
-
-    .section {
-      padding: 100px 6%;
-    }
-
-    .section-inner {
-      max-width: 1080px;
-      margin: auto;
-    }
-
-    .section-heading {
-      text-align: center;
-      max-width: 540px;
-      margin: 0 auto 48px;
-    }
-
-    .section-heading .eyebrow {
-      justify-content: center;
-      margin-bottom: 17px;
-    }
-
-    .section-heading h2 {
-      font-size: clamp(37px, 5vw, 54px);
-      line-height: 1.15;
-      letter-spacing: -1.4px;
-    }
-
-    .section-heading h2 em {
-      color: #c77e77;
-    }
-
-    .section-heading > p:last-child {
-      margin: 18px auto 0;
-      color: var(--brown-light);
-      font-size: 12px;
-      line-height: 1.9;
-      max-width: 400px;
-    }
-
-    /* Menu cards */
-
-    .menu-section {
-      background: var(--paper);
-    }
-
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .menu-card {
-      background: var(--cream);
-      border: 1px solid var(--line);
-      transition: transform .3s, box-shadow .3s;
-    }
-
-    .menu-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 15px 35px #5739230b;
-    }
-
-    .menu-photo {
-      position: relative;
-      aspect-ratio: 1 / .88;
-      overflow: hidden;
-      background: #eadac6;
-    }
-
-    .menu-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .5s;
-    }
-
-    .menu-card:hover .menu-photo img {
-      transform: scale(1.05);
-    }
-
-    .menu-tag {
-      position: absolute;
-      top: 13px;
-      left: 13px;
-      padding: 7px 10px;
-      background: var(--paper);
-      font-size: 8px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .menu-info {
-      padding: 20px;
-    }
-
-    .menu-title-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 10px;
-    }
-
-    .menu-info h3 {
-      font-size: 21px;
-    }
-
-    .price {
-      font-size: 12px;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .menu-info p {
-      margin-top: 10px;
-      font-size: 11px;
-      line-height: 1.8;
-      color: var(--brown-light);
-    }
-
-    .menu-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 18px;
-      padding-top: 14px;
-      border-top: 1px solid var(--line);
-      font-size: 9px;
-      color: var(--brown-light);
-    }
-
-    .menu-bottom a {
-      color: var(--brown);
-      font-weight: 700;
-      letter-spacing: .5px;
-    }
-
-    .menu-bottom a:hover {
-      color: #bd7770;
-    }
-
-    .menu-footnote {
-      text-align: center;
-      margin-top: 30px;
-      color: #8d7965;
-      font-size: 10px;
-      line-height: 1.8;
-    }
-
-    /* Story section */
-
-    .story {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 75px;
-      align-items: center;
-    }
-
-    .story-visual {
-      position: relative;
-      padding: 0 25px 25px 0;
-    }
-
-    .story-photo {
-      aspect-ratio: 4 / 4.5;
-      background: #ead7c2;
-      overflow: hidden;
-    }
-
-    .story-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .story-label {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      background: var(--green);
-      color: white;
-      padding: 20px 25px;
-      font-family: var(--font-title);
-      font-size: 18px;
-      font-style: italic;
-    }
-
-    .story-copy .eyebrow {
-      margin-bottom: 20px;
-    }
-
-    .story-copy h2 {
-      font-size: clamp(39px, 5vw, 57px);
-      line-height: 1.13;
-      letter-spacing: -1.6px;
-      margin-bottom: 24px;
-    }
-
-    .story-copy h2 em {
-      color: #c77e77;
-    }
-
-    .story-copy > p {
-      font-size: 12px;
-      line-height: 2.1;
-      color: var(--brown-light);
-      margin-bottom: 17px;
-    }
-
-    .story-signature {
-      display: inline-block;
-      font-family: var(--font-title);
-      font-size: 19px;
-      font-style: italic;
-      margin-top: 12px;
-      color: #bd7770;
-    }
-
-    /* Features */
-
-    .features-section {
-      background: #e9e4d6;
-      padding: 65px 6%;
-    }
-
-    .features-grid {
-      max-width: 1000px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .feature {
-      text-align: center;
-      padding: 15px 25px;
-      border-right: 1px solid #d4cbb8;
-    }
-
-    .feature:last-child {
-      border: 0;
-    }
-
-    .feature-icon {
-      font-size: 26px;
-      margin-bottom: 13px;
-    }
-
-    .feature h3 {
-      font-size: 20px;
-      margin-bottom: 8px;
-    }
-
-    .feature p {
-      color: var(--brown-light);
-      font-size: 10px;
-      line-height: 1.8;
-    }
-
-    /* Pre-order CTA */
-
-    .order-section {
-      padding: 100px 6%;
-    }
-
-    .order-card {
-      max-width: 1080px;
-      margin: auto;
-      background: var(--brown);
-      color: var(--cream);
-      display: grid;
-      grid-template-columns: 1.3fr .7fr;
-      align-items: center;
-      gap: 40px;
-      padding: 65px 8%;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .order-card::after {
-      content: "♡";
-      position: absolute;
-      right: -14px;
-      bottom: -115px;
-      font-family: var(--font-title);
-      font-size: 300px;
-      color: #ffffff08;
-      pointer-events: none;
-    }
-
-    .order-card .eyebrow {
-      color: #dfc6a9;
-    }
-
-    .order-card h2 {
-      font-size: clamp(39px, 5vw, 60px);
-      line-height: 1.12;
-      letter-spacing: -1.4px;
-      margin-bottom: 20px;
-    }
-
-    .order-card h2 em {
-      color: var(--pink);
-    }
-
-    .order-card .order-description {
-      font-size: 12px;
-      line-height: 2;
-      color: #d7c5b3;
-      max-width: 390px;
-    }
-
-    .order-action {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-    }
-
-    .order-action .button-primary {
-      background: var(--pink-light);
-      color: var(--brown);
-      border-color: var(--pink-light);
-      width: 100%;
-      max-width: 250px;
-      padding: 20px;
-    }
-
-    .order-action .button-primary:hover {
-      background: white;
-    }
-
-    .order-action p {
-      margin-top: 16px;
-      color: #d7c5b3;
-      font-size: 9px;
-      line-height: 1.8;
-    }
-
-    /* Footer */
-
-    footer {
-      background: var(--paper);
-      border-top: 1px solid var(--line);
-      padding: 35px 6%;
-    }
-
-    .footer-inner {
-      max-width: 1080px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .footer-brand p {
-      margin-top: 6px;
-      font-size: 10px;
-      color: var(--brown-light);
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 20px;
-      font-size: 10px;
-      color: var(--brown-light);
-    }
-
-    .footer-copy {
-      text-align: right;
-      font-size: 9px;
-      color: #9a8774;
-      line-height: 1.8;
-    }
-
-    /* Entrance animation */
-
-    .reveal {
-      animation: fadeUp .8s ease both;
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        scroll-behavior: auto !important;
-        animation-duration: .01ms !important;
-        transition-duration: .01ms !important;
-      }
-    }
-
-    /* Responsive */
-
-    @media (max-width: 760px) {
-      .navbar {
-        height: 66px;
-        padding: 0 5%;
-      }
-
-      .logo {
-        font-size: 24px;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .nav-cta {
-        padding: 12px 15px;
-        font-size: 10px;
-      }
-
-      .announcement {
-        font-size: 8px;
-        letter-spacing: 1.3px;
-      }
-
-      .hero {
-        padding: 45px 6% 55px;
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      .hero-copy {
-        text-align: center;
-      }
-
-      .hero .eyebrow {
-        justify-content: center;
-      }
-
-      .hero h1 {
-        font-size: clamp(51px, 12vw, 72px);
-        letter-spacing: -2px;
-      }
-
-      .hero-description {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .hero-buttons {
-        justify-content: center;
-      }
-
-      .hero-note {
-        margin-top: 24px;
-      }
-
-      .hero-visual {
-        width: 88%;
-        margin: auto;
-      }
-
-      .photo-caption {
-        width: 95px;
-        height: 95px;
-        right: -15px;
-      }
-
-      .photo-caption p {
-        font-size: 15px;
-      }
-
-      .section {
-        padding: 75px 6%;
-      }
-
-      .menu-grid {
-        grid-template-columns: 1fr;
-        gap: 22px;
-        max-width: 440px;
-        margin: auto;
-      }
-
-      .menu-photo {
-        aspect-ratio: 1 / .78;
-      }
-
-      .menu-info {
-        padding: 20px;
-      }
-
-      .story {
-        grid-template-columns: 1fr;
-        gap: 45px;
-      }
-
-      .story-visual {
-        max-width: 420px;
-        width: 92%;
-        margin: auto;
-      }
-
-      .story-copy {
-        text-align: center;
-      }
-
-      .story-copy .eyebrow {
-        justify-content: center;
-      }
-
-      .story-copy h2 {
-        font-size: 45px;
-      }
-
-      .features-grid {
-        grid-template-columns: 1fr;
-        gap: 10px;
-      }
-
-      .feature {
-        border-right: 0;
-        border-bottom: 1px solid #d4cbb8;
-        padding: 23px 10px;
-      }
-
-      .feature:last-child {
-        border: 0;
-      }
-
-      .order-section {
-        padding: 65px 5%;
-      }
-
-      .order-card {
-        grid-template-columns: 1fr;
-        gap: 35px;
-        padding: 45px 8%;
-        text-align: center;
-      }
-
-      .order-card .eyebrow {
-        justify-content: center;
-      }
-
-      .order-card .order-description {
-        margin: auto;
-      }
-
-      .order-action .button-primary {
-        max-width: 100%;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .footer-copy {
-        text-align: center;
-      }
-
-      .footer-links {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Churrobär!! — Small Bites, Big Happiness</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream: #f1dfc3;
+  --brown: #54290f;
+  --pink: #ff858a;
+  --white: #fffaf0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--brown);
+  font-family: 'Nunito', sans-serif;
+}
+
+a { text-decoration: none; color: inherit; }
+
+nav {
+  max-width: 1000px;
+  margin: auto;
+  padding: 24px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.logo span { color: var(--pink); }
+
+.nav-link {
+  font-size: 13px;
+  font-weight: 800;
+  border-bottom: 2px dashed var(--pink);
+  padding-bottom: 4px;
+}
+
+main {
+  max-width: 1000px;
+  margin: auto;
+  padding: 25px 7% 70px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 45px;
+  align-items: center;
+}
+
+.tag {
+  display: inline-block;
+  background: var(--white);
+  padding: 8px 15px;
+  border: 1px dashed var(--pink);
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(48px, 7vw, 76px);
+  line-height: 0.98;
+  letter-spacing: -2px;
+}
+
+h1 span { color: var(--pink); }
+
+.subtitle {
+  margin: 22px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  max-width: 380px;
+}
+
+.button {
+  display: inline-block;
+  background: var(--brown);
+  color: white;
+  padding: 14px 23px;
+  border-radius: 30px;
+  font-weight: 900;
+  font-size: 13px;
+  transition: .2s;
+}
+
+.button:hover {
+  background: #78421f;
+  transform: translateY(-3px);
+}
+
+.hero-photo {
+  position: relative;
+}
+
+.hero-photo img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 48% 48% 25px 25px;
+  border: 6px solid var(--white);
+  outline: 2px dashed var(--pink);
+  outline-offset: 5px;
+}
+
+.sticker {
+  position: absolute;
+  bottom: 20px;
+  left: -25px;
+  background: var(--pink);
+  color: white;
+  padding: 14px 18px;
+  border-radius: 20px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  transform: rotate(-7deg);
+}
+
+.section {
+  margin-top: 90px;
+  scroll-margin-top: 30px;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section-heading h2 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(32px, 5vw, 45px);
+}
+
+.section-heading p {
+  font-size: 13px;
+  margin-top: 8px;
+  line-height: 1.8;
+}
+
+.prices {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.price-card {
+  background: var(--white);
+  padding: 25px 12px;
+  text-align: center;
+  border: 2px dashed #f3aaa0;
+  border-radius: 22px;
+  transition: .2s;
+}
+
+.price-card:hover { transform: translateY(-5px) rotate(-1deg); }
+
+.price-card .emoji { font-size: 25px; }
+
+.price-card h3 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 24px;
+  margin: 8px 0;
+}
+
+.price {
+  color: var(--pink);
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(19px, 3vw, 27px);
+  font-weight: 700;
+}
+
+.unit {
+  font-size: 11px;
+  margin-top: 7px;
+  color: #95745b;
+}
+
+.note {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 12px;
+}
+
+.about {
+  background: #e7c9a8;
+  border-radius: 25px;
+  padding: 35px 25px;
+  text-align: center;
+}
+
+.about h2 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.about p {
+  font-size: 13px;
+  line-height: 2;
+  max-width: 520px;
+  margin: auto;
+}
+
+.order {
+  text-align: center;
+  padding: 40px 15px;
+}
+
+.order h2 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(32px, 5vw, 43px);
+}
+
+.order p {
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 12px auto 22px;
+}
+
+.contact {
+  text-align: center;
+  padding: 22px 10px;
+  border-top: 1px dashed #b99c7a;
+}
+
+.contact p {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.contact a {
+  font-weight: 900;
+  color: #388b39;
+}
+
+footer {
+  text-align: center;
+  padding: 22px;
+  background: var(--brown);
+  color: var(--white);
+  font-size: 11px;
+}
+
+@media (max-width: 650px) {
+  nav { padding: 20px 6%; }
+  .logo { font-size: 22px; }
+  main { padding: 20px 6% 50px; }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .hero-copy { text-align: center; }
+  .subtitle { margin: 20px auto; }
+  .hero-photo { width: 85%; margin: auto; }
+  .sticker { left: -18px; }
+
+  .section { margin-top: 65px; }
+
+  .prices { grid-template-columns: 1fr; gap: 12px; }
+  .price-card {
+    padding: 17px;
+    display: grid;
+    grid-template-columns: 35px 1fr;
+    text-align: left;
+    align-items: center;
+    column-gap: 10px;
+  }
+
+  .price-card .emoji { grid-row: span 3; }
+  .price-card h3 { margin: 0; font-size: 22px; }
+  .price { font-size: 23px; }
+  .unit { margin-top: 2px; }
+
+  .about { padding: 30px 20px; }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- ANNOUNCEMENT -->
-  <div class="announcement">
-    A little sweetness goes a long way <span>♡</span> Made with love
-  </div>
+<nav>
+  <a href="#" class="logo">Churrobär<span>!!</span> ♡</a>
+  <a href="#harga" class="nav-link">OUR MENU ↓</a>
+</nav>
 
-  <!-- NAVIGATION -->
-  <header>
-    <nav class="navbar">
-      <a href="#home" class="logo">bear<span>.</span>bites</a>
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <span class="tag">♡ SMALL BATCH, BIG LOVE ♡</span>
 
-      <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#menu">Our Menu</a>
-        <a href="#story">Our Story</a>
+      <h1>Small Bites,<br><span>Big Happiness!</span></h1>
+
+      <p class="subtitle">
+        Meet our little bear donuts! 🧸
+        Golden, sugary, and made to sweeten your day.
+        One bite, and suddenly everything feels a little sweeter.
+      </p>
+
+      <a href="#harga" class="button">Find your sweet box ↗</a>
+    </div>
+
+    <div class="hero-photo">
+      <!-- Simpan foto donat kamu dengan nama donat.jpg -->
+      <img src="donat.jpg" alt="Donat beruang Churrobär">
+      <div class="sticker">Sweet bites ♡</div>
+    </div>
+  </section>
+
+  <section class="section" id="harga">
+    <div class="section-heading">
+      <h2>A little box of happiness 🎀</h2>
+      <p>Pick your favorite bundle!</p>
+    </div>
+
+    <div class="prices">
+      <div class="price-card">
+        <div class="emoji">🍩</div>
+        <h3>3 pcs</h3>
+        <div class="price">Rp12.000</div>
+        <div class="unit">Perfect for a little treat</div>
       </div>
 
-      <a href="#order" class="nav-cta">ORDER NOW ↗</a>
-    </nav>
-  </header>
-
-  <main>
-
-    <!-- HERO -->
-    <section class="hero" id="home">
-
-      <div class="hero-copy reveal">
-        <p class="eyebrow">A tiny bakery with a big heart</p>
-
-        <h1>
-          Little donuts,<br>
-          <em>big love.</em>
-        </h1>
-
-        <p class="hero-description">
-          Meet your new favorite little treat. Golden, sugary,
-          and made to bring a little extra happiness to your day.
-          Too cute to eat? We think so, too.
-        </p>
-
-        <div class="hero-buttons">
-          <a href="#order" class="button-primary">
-            Get your little treats <span>↗</span>
-          </a>
-
-          <a href="#menu" class="text-link">
-            Explore the menu ↓
-          </a>
-        </div>
-
-        <p class="hero-note">
-          <span>✳</span> Small batches, sweeter moments.
-        </p>
+      <div class="price-card">
+        <div class="emoji">🍩</div>
+        <h3>5 pcs</h3>
+        <div class="price">Rp18.000</div>
+        <div class="unit">More bears, more happiness</div>
       </div>
 
-      <div class="hero-visual">
-        <span class="photo-number">THE LITTLE DONUT CLUB — 001</span>
-
-        <div class="photo-frame">
-          <!-- GANTI URL FOTO DI BAWAH DENGAN FOTO PRODUK KAMU -->
-          <img
-            src="GANTI_DENGAN_URL_FOTO_PRODUK_KAMU"
-            alt="Donat beruang manis Bear Bites"
-            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=1000&q=85';"
-          >
-        </div>
-
-        <div class="photo-caption">
-          <p>
-            made with
-            <br>love ♡
-            <small>AND A LITTLE SUGAR</small>
-          </p>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- MARQUEE -->
-    <div class="marquee" aria-label="Little donuts, happy moments">
-      <div class="marquee-track">
-        <span>little donuts, happy moments</span><b>✳</b>
-        <span>made for your sweet tooth</span><b>♡</b>
-        <span>tiny treats, big happiness</span><b>✳</b>
-        <span>little donuts, happy moments</span><b>♡</b>
-        <span>made for your sweet tooth</span><b>✳</b>
-        <span>tiny treats, big happiness</span><b>♡</b>
+      <div class="price-card">
+        <div class="emoji">🍩</div>
+        <h3>7 pcs</h3>
+        <div class="price">Rp25.000</div>
+        <div class="unit">A whole lot of sweetness</div>
       </div>
     </div>
 
-    <!-- MENU -->
-    <section class="section menu-section" id="menu">
-      <div class="section-inner">
+    <p class="note">Want just one? ♡ Rp4.000 / pcs</p>
+  </section>
 
-        <div class="section-heading">
-          <p class="eyebrow">A little something for you</p>
-          <h2>Meet the <em>sweet ones.</em></h2>
-          <p>
-            Cute little faces, golden goodness, and a whole lot of sweetness.
-            Pick your favorite!
-          </p>
-        </div>
+  <section class="section about">
+    <h2>Too cute to eat? 🧸</h2>
+    <p>
+      Little bear-shaped donuts, a golden sugar coating,
+      and sweet moments worth sharing.
+      Whether it's a treat for yourself or a gift for someone special,
+      our little bears are here to make your day sweeter.
+      <br><strong>Made with love, served with a little happiness ♡</strong>
+    </p>
+  </section>
 
-        <div class="menu-grid">
+  <section class="section order" id="order">
+    <span class="tag">PRE-ORDER IS OPEN ♡</span>
+    <h2>Your bears are waiting!</h2>
+    <p>
+      Ready to adopt your little bears? 🐻<br>
+      Fill in the order form and let the sweetness begin.
+    </p>
 
-          <!-- PRODUCT 1 -->
-          <article class="menu-card">
-            <div class="menu-photo">
-              <img
-                src="GANTI_URL_FOTO_PRODUK_1"
-                alt="Original Bear Donuts"
-                loading="lazy"
-                onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=700&q=80';"
-              >
-              <span class="menu-tag">The classic</span>
-            </div>
+    <!-- GANTI LINK INI DENGAN LINK GOOGLE FORM KAMU -->
+    <a
+      href="GANTI_DENGAN_LINK_GOOGLE_FORM"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="button"
+    >
+      ORDER NOW ♡
+    </a>
+  </section>
 
-            <div class="menu-info">
-              <div class="menu-title-row">
-                <h3>Bear-y Original</h3>
-                <span class="price">Rp XX.XXX</span>
-              </div>
+  <section class="contact">
+    <p>Questions? Let's talk! 💌</p>
+    <!-- Nomor WhatsApp dari poster -->
+    <a href="https://wa.me/6285161115876" target="_blank">
+      WhatsApp us ↗
+    </a>
+  </section>
+</main>
 
-              <p>
-                Our signature golden donut, coated in sugar
-                with the cutest little bear face.
-              </p>
-
-              <div class="menu-bottom">
-                <span>♡ A little classic</span>
-                <a href="#order">GET YOURS ↗</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- PRODUCT 2 -->
-          <article class="menu-card">
-            <div class="menu-photo">
-              <img
-                src="GANTI_URL_FOTO_PRODUK_2"
-                alt="Strawberry Bear Donuts"
-                loading="lazy"
-                onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=700&q=80';"
-              >
-              <span class="menu-tag">Sweet favorite</span>
-            </div>
-
-            <div class="menu-info">
-              <div class="menu-title-row">
-                <h3>Strawberry Hugs</h3>
-                <span class="price">Rp XX.XXX</span>
-              </div>
-
-              <p>
-                A sweet little treat with a strawberry-inspired
-                twist. Perfect for pink-loving hearts.
-              </p>
-
-              <div class="menu-bottom">
-                <span>♡ Pink & lovely</span>
-                <a href="#order">GET YOURS ↗</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- PRODUCT 3 -->
-          <article class="menu-card">
-            <div class="menu-photo">
-              <img
-                src="GANTI_URL_FOTO_PRODUK_3"
-                alt="Bear Donut Gift Box"
-                loading="lazy"
-                onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=700&q=80';"
-              >
-              <span class="menu-tag">Made for sharing</span>
-            </div>
-
-            <div class="menu-info">
-              <div class="menu-title-row">
-                <h3>Happy Bear Box</h3>
-                <span class="price">Rp XX.XXX</span>
-              </div>
-
-              <p>
-                A box full of little happy faces.
-                A lovely surprise for someone special — or yourself.
-              </p>
-
-              <div class="menu-bottom">
-                <span>♡ Share the love</span>
-                <a href="#order">GET YOURS ↗</a>
-              </div>
-            </div>
-          </article>
-
-        </div>
-
-        <p class="menu-footnote">
-          Prices and available variants can be updated according to the current pre-order menu.
-        </p>
-
-      </div>
-    </section>
-
-    <!-- OUR STORY -->
-    <section class="section" id="story">
-      <div class="section-inner story">
-
-        <div class="story-visual">
-          <div class="story-photo">
-            <img
-              src="GANTI_URL_FOTO_PRODUK_KAMU"
-              alt="A little peek into the Bear Bites world"
-              loading="lazy"
-              onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=900&q=85';"
-            >
-          </div>
-
-          <div class="story-label">
-            A sweet little moment ♡
-          </div>
-        </div>
-
-        <div class="story-copy">
-          <p class="eyebrow">A note from our little bakery</p>
-
-          <h2>
-            More than a donut,<br>
-            it's a little <em>happy thing.</em>
-          </h2>
-
-          <p>
-            We believe the smallest things can make the biggest difference.
-            Sometimes, all it takes is a sweet treat, a little sugar,
-            and a cute bear face to make an ordinary day feel special.
-          </p>
-
-          <p>
-            That's the feeling we want to share with every little donut
-            we make — something sweet to enjoy, something cute to share,
-            and something lovely to remember.
-          </p>
-
-          <span class="story-signature">With love, Bear Bites ♡</span>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- BRAND VALUES -->
-    <section class="features-section">
-      <div class="features-grid">
-
-        <div class="feature">
-          <div class="feature-icon">♡</div>
-          <h3>Made with love</h3>
-          <p>A little extra care in every little detail.</p>
-        </div>
-
-        <div class="feature">
-          <div class="feature-icon">✳</div>
-          <h3>Made to delight</h3>
-          <p>Adorable little treats for your sweetest moments.</p>
-        </div>
-
-        <div class="feature">
-          <div class="feature-icon">☁</div>
-          <h3>Made for sharing</h3>
-          <p>Because happy moments are even better together.</p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- PRE-ORDER -->
-    <section class="order-section" id="order">
-      <div class="order-card">
-
-        <div>
-          <p class="eyebrow">The sweetest part starts here</p>
-
-          <h2>
-            Your little<br>
-            happiness is <em>one click away.</em>
-          </h2>
-
-          <p class="order-description">
-            Ready to bring home some little bear-shaped happiness?
-            Fill out our pre-order form and let us take care of the sweet part.
-          </p>
-        </div>
-
-        <div class="order-action">
-          <!-- GANTI LINK GOOGLE FORM DI BAWAH -->
-          <a
-            href="GANTI_DENGAN_LINK_GOOGLE_FORM_KAMU"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="button-primary"
-          >
-            Fill the pre-order form <span>↗</span>
-          </a>
-
-          <p>
-            Please double-check your order details<br>
-            before submitting your form ♡
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-
-      <div class="footer-brand">
-        <a href="#home" class="logo">bear<span>.</span>bites</a>
-        <p>Little donuts, big love. ♡</p>
-      </div>
-
-      <div class="footer-links">
-        <a href="#home">Home</a>
-        <a href="#menu">Menu</a>
-        <a href="#story">Our Story</a>
-        <!-- GANTI # DENGAN LINK INSTAGRAM -->
-        <a href="#" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
-      </div>
-
-      <div class="footer-copy">
-        © <span id="year"></span> Bear Bites<br>
-        A little sweetness, made with love.
-      </div>
-
-    </div>
-  </footer>
-
-  <script>
-    // Automatically update the copyright year.
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-
-    // Smooth scrolling for internal navigation.
-    document.querySelectorAll('a[href^="#"]').forEach(function(link) {
-      link.addEventListener("click", function(event) {
-        const targetId = this.getAttribute("href");
-
-        if (targetId.length > 1) {
-          const target = document.querySelector(targetId);
-
-          if (target) {
-            event.preventDefault();
-            target.scrollIntoView({
-              behavior: "smooth",
-              block: "start"
-            });
-          }
-        }
-      });
-    });
-  </script>
+<footer>
+  Churrobär!! ♡ Small Bites, Big Happiness
+  <br><br>
+  Made with love & a little sugar.
+</footer>
 
 </body>
 </html>
