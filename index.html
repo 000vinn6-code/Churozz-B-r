@@ -1,71 +1,493 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f5e5cb">
-<title>Churrobär — Small Bites, Big Happiness</title>
+<title>Churrobär — Little Bites, Big Joy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&display=swap');
-:root{--cream:#f5e5cb;--paper:#fffaf1;--brown:#54280f;--pink:#ff8f99;--pink2:#ffd1c5;--tan:#d5aa8b;--ink:#4b2a19}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--brown);font-family:'DM Sans',sans-serif}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}.wrap{width:min(1120px,92%);margin:auto}
-nav{position:sticky;top:0;z-index:10;background:#f5e5cbeF;backdrop-filter:blur(12px);border-bottom:1px solid #6c3b2020}
-.navin{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:15px 0}.brand{font:700 1.45rem Fredoka,sans-serif;letter-spacing:-.5px}.brand span{color:#e97d83}.links{display:flex;gap:23px;align-items:center;font-size:.92rem;font-weight:700}.links a:hover{color:#dc747d}.nav-cta,.btn{border:0;background:var(--brown);color:white;padding:12px 19px;border-radius:999px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.2s;box-shadow:0 4px 0 #321707}.nav-cta:hover,.btn:hover{transform:translateY(-2px);box-shadow:0 6px 0 #321707}.menu{display:none;background:none;border:0;color:var(--brown);font-size:1.5rem}
-.hero{padding:65px 0 55px;overflow:hidden}.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;align-items:center;gap:35px}.eyebrow{display:inline-block;background:#fff8ec;border:1px dashed #d6a18c;border-radius:999px;padding:8px 14px;font-size:.82rem;font-weight:700;transform:rotate(-2deg)}h1,h2,h3,.price{font-family:Fredoka,sans-serif}h1{font-size:clamp(3.2rem,7vw,6.5rem);line-height:.93;letter-spacing:-3px;margin:20px 0;color:var(--brown)}h1 em{font-style:normal;color:#e87e87;text-shadow:3px 3px 0 #f9c6b4}.hero p{font-size:1.08rem;line-height:1.8;max-width:480px;color:#76533b}.hero-actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:24px}.btn.secondary{background:#fff9ef;color:var(--brown);box-shadow:0 4px 0 #dfc6a8}.hero-art{position:relative;min-height:410px;display:grid;place-items:center}.blob{width:min(410px,90%);aspect-ratio:1;border-radius:43% 57% 51% 49%/49% 42% 58% 51%;background:#ffd0c6;display:grid;place-items:center;transform:rotate(4deg);border:3px solid #fff8ed;box-shadow:10px 12px 0 #d6ae8b}.product-emoji{font-size:clamp(8rem,19vw,14rem);filter:drop-shadow(4px 8px 0 #bd8d66);transform:rotate(-8deg)}.sticker{position:absolute;background:#fff9ed;border:2px dashed #e9858a;border-radius:50%;padding:18px 21px;text-align:center;font:600 1.05rem Fredoka,sans-serif;transform:rotate(-11deg);right:0;top:18px}.sticker small{display:block;font:700 .72rem 'DM Sans';color:#b56b59}.spark{position:absolute;color:#e9858a;font-size:3rem}.s1{left:3%;top:22%}.s2{right:7%;bottom:8%;transform:rotate(15deg)}
-section{padding:70px 0}.section-head{text-align:center;max-width:650px;margin:0 auto 34px}.kicker{font-size:.75rem;letter-spacing:2px;text-transform:uppercase;color:#b76d5e;font-weight:800}.section-head h2{font-size:clamp(2.2rem,5vw,3.5rem);margin:9px 0}.section-head p{color:#795b43;line-height:1.7}.prices{background:#fff8ed;border-radius:35px;padding:38px 30px;box-shadow:0 8px 0 #e3c6a4}.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.price-card{background:#fff;border:2px solid #f4d7c9;border-radius:25px;padding:25px 18px;text-align:center;transition:.25s;position:relative;overflow:hidden}.price-card:hover{transform:translateY(-7px) rotate(-1deg);border-color:var(--pink)}.price-card .emoji{font-size:2.5rem}.price-card h3{font-size:1.55rem;margin:10px 0 2px}.price{font-size:2rem;color:#e87e87;margin:8px 0}.price-card p{font-size:.9rem;color:#87664c;margin:0}.tag{position:absolute;top:13px;right:-27px;transform:rotate(35deg);background:#ffb7b4;padding:5px 30px;font-size:.65rem;font-weight:800}.note{text-align:center;font-size:.9rem;color:#8b684f;margin:20px 0 0}
-.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:35px;align-items:center}.about-card{background:#e8b69d;border-radius:30px;padding:35px;transform:rotate(-2deg);border:3px solid #fff7e9;text-align:center}.about-card .bear{font-size:6rem}.about-card strong{font:700 1.8rem Fredoka}.about-copy h2{font-size:2.8rem;margin:0 0 15px}.about-copy p{line-height:1.85;color:#795b43}.pill-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.pill{border:1px dashed #c38b6f;background:#fff7e9;padding:9px 13px;border-radius:99px;font-size:.85rem;font-weight:700}
-.order{background:#f4c8bb;border-radius:35px;padding:45px 25px;text-align:center;position:relative;overflow:hidden}.order h2{font-size:clamp(2.3rem,5vw,3.6rem);margin:10px 0}.order p{color:#714b35;line-height:1.7;max-width:570px;margin:0 auto 22px}.order .btn{background:#fff8ed;color:var(--brown);box-shadow:0 4px 0 #d39b83}.order .btn:hover{box-shadow:0 6px 0 #d39b83}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.contact-card{background:#fff8ed;border-radius:24px;padding:25px;display:flex;align-items:center;gap:17px;border:1px solid #eed4b8;transition:.2s}.contact-card:hover{transform:translateY(-3px)}.contact-icon{width:53px;height:53px;border-radius:18px;background:#ffd4ca;display:grid;place-items:center;font-size:1.6rem;flex-shrink:0}.contact-card small{display:block;color:#a16c53;margin-bottom:4px}.contact-card strong{overflow-wrap:anywhere}
-footer{margin-top:50px;background:#5a2e17;color:#fff5e8;padding:27px 0}.footerin{display:flex;justify-content:space-between;gap:18px;align-items:center;flex-wrap:wrap}.footerin small{opacity:.75}.top{border:1px solid #ffffff60;border-radius:99px;padding:9px 13px}
-.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);opacity:0;background:#54280f;color:#fff;padding:12px 18px;border-radius:99px;z-index:30;transition:.25s;pointer-events:none}.toast.show{opacity:1;transform:translate(-50%,0)}
-@media(max-width:760px){.links{display:none;position:absolute;left:4%;right:4%;top:65px;padding:20px;background:#fff8ed;border-radius:20px;box-shadow:0 10px 30px #54280f22;flex-direction:column;align-items:stretch}.links.open{display:flex}.menu{display:block}.nav-cta{display:none}.hero{padding-top:35px}.hero-grid,.about-grid{grid-template-columns:1fr}.hero-art{min-height:310px;order:-1}.blob{width:290px}.product-emoji{font-size:10rem}.sticker{right:5%;top:0}.hero-copy{text-align:center}.hero p{margin-inline:auto}.hero-actions{justify-content:center}h1{letter-spacing:-2px}.price-grid{grid-template-columns:1fr}.prices{padding:25px 17px}.contact-grid{grid-template-columns:1fr}section{padding:52px 0}.about-card{max-width:360px;margin:auto}.section-head h2{line-height:1.05}}
+:root {
+  --cream:#f8efe3;
+  --white:#fffaf4;
+  --brown:#47291d;
+  --pink:#f2a6a1;
+  --rose:#dc777c;
+  --green:#647356;
+  --muted:#806b5d;
+}
+* {box-sizing:border-box}
+html {scroll-behavior:smooth;scroll-padding-top:85px}
+body {
+  margin:0;background:var(--cream);color:var(--brown);
+  font-family:'DM Sans',sans-serif;
+}
+a {color:inherit;text-decoration:none}
+button {font:inherit;cursor:pointer}
+.wrap {width:min(1120px,90%);margin:auto}
+nav {
+  position:sticky;top:0;z-index:10;
+  background:#f8efe3ed;backdrop-filter:blur(12px);
+  border-bottom:1px solid #dfcbb7;
+}
+.nav {
+  display:flex;justify-content:space-between;align-items:center;
+  padding:17px 0;gap:20px;
+}
+.logo {font-weight:800;font-size:1.5rem;letter-spacing:-1px}
+.logo span {color:var(--rose)}
+.links {display:flex;gap:22px;font-size:.85rem;font-weight:700}
+.links a:hover {color:var(--rose)}
+.btn {
+  display:inline-block;background:var(--brown);color:white;
+  padding:14px 22px;border:0;border-radius:4px 17px 4px 17px;
+  box-shadow:4px 4px 0 var(--pink);font-weight:800;
+  transition:.25s;
+}
+.btn:hover {transform:translateY(-3px);box-shadow:6px 7px 0 var(--pink)}
+.menu-btn {display:none;background:none;border:0;font-size:1.5rem}
+.hero {padding:70px 0}
+.hero-grid {
+  display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:50px;
+}
+.label {
+  font-size:.72rem;font-weight:800;letter-spacing:3px;
+  text-transform:uppercase;color:var(--green);
+}
+h1 {
+  font:800 clamp(3.4rem,7vw,6rem)/.98 'Playfair Display',serif;
+  letter-spacing:-3px;margin:23px 0;
+}
+h1 span {color:var(--rose);font-style:italic}
+p {line-height:1.85}
+.hero p {color:var(--muted);max-width:470px}
+.actions {display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:28px}
+.text-btn {font-size:.85rem;font-weight:800;border-bottom:1px solid}
+.hero-photo {
+  height:490px;position:relative;
+}
+.hero-photo img {
+  width:100%;height:100%;object-fit:cover;
+  border:9px solid var(--white);
+  border-radius:48% 48% 6px 6px;
+  box-shadow:8px 8px 0 var(--pink);
+  transform:rotate(2deg);
+}
+.sticker {
+  position:absolute;top:15px;right:-12px;
+  background:var(--pink);width:105px;height:105px;
+  border:2px dashed white;outline:4px solid var(--pink);
+  border-radius:50%;display:grid;place-content:center;
+  text-align:center;font-size:.7rem;font-weight:800;
+  transform:rotate(10deg);
+}
+.sticker strong {font-size:1.2rem}
+.caption {
+  position:absolute;bottom:22px;left:-12px;
+  background:var(--white);padding:15px;
+  font-family:'Playfair Display',serif;font-weight:700;
+  box-shadow:4px 4px 0 var(--green);transform:rotate(-4deg);
+}
+.ticker {
+  background:var(--pink);padding:14px;overflow:hidden;
+  white-space:nowrap;font-size:.78rem;font-weight:800;
+  letter-spacing:2px;
+}
+section {padding:85px 0}
+.heading {margin-bottom:35px}
+.heading h2,.about h2,.order h2 {
+  font:700 clamp(2.5rem,5vw,4rem)/1.1 'Playfair Display',serif;
+  letter-spacing:-2px;margin:12px 0;
+}
+.heading p {color:var(--muted);max-width:500px}
+.cards {display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card {
+  background:var(--white);padding:25px;
+  border:1px solid #e5d4c1;border-radius:4px 28px 4px 28px;
+  transition:.3s;
+}
+.card:hover {transform:translateY(-8px);box-shadow:0 15px 30px #47291d16}
+.card-emoji {
+  background:#f3dfce;height:115px;display:grid;
+  place-items:center;font-size:3.4rem;
+  border-radius:4px 20px 4px 20px;
+}
+.card:nth-child(2) .card-emoji {background:#f5d6d3}
+.card:nth-child(3) .card-emoji {background:#dfe5d7}
+.card small {display:block;color:var(--green);font-weight:800;margin-top:20px}
+.card h3 {font:700 1.5rem 'Playfair Display',serif;margin:8px 0}
+.price {font-size:1.6rem;font-weight:800;color:var(--rose)}
+.card p {font-size:.85rem;color:var(--muted)}
+.pick {
+  width:100%;padding:12px;border:1px solid var(--brown);
+  background:transparent;font-weight:800;transition:.2s;
+}
+.pick:hover,.pick.active {background:var(--brown);color:white}
+.single {
+  margin-top:20px;background:#e5e8dc;padding:20px;
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+}
+.sauce {background:#e9e8dc}
+.sauce-grid,.about-grid {
+  display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center;
+}
+.sauce-visual {
+  min-height:300px;background:#dfb9a2;
+  display:grid;place-items:center;font-size:8rem;
+  border-radius:45% 45% 5px 5px;
+}
+.sauce-buttons {display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.sauce-buttons button {
+  padding:11px 15px;border:1px solid #d5c1ad;
+  background:var(--white);border-radius:30px;
+}
+.sauce-buttons button.active {background:var(--brown);color:white}
+.sauce-message {color:var(--green);font-size:.85rem;font-weight:700}
+.about-photo {height:440px;position:relative}
+.about-photo img {
+  width:100%;height:100%;object-fit:cover;
+  border-radius:5px 45% 5px 5px;
+}
+.about p {color:var(--muted)}
+.values {display:flex;gap:15px;flex-wrap:wrap;font-size:.8rem;font-weight:800}
+.values span {border-bottom:1px solid var(--rose);padding-bottom:8px}
+.order {padding-top:30px}
+.order-box {
+  background:var(--green);color:white;padding:45px;
+  display:grid;grid-template-columns:1fr .8fr;gap:35px;
+  align-items:center;border-radius:5px 45px 5px 5px;
+}
+.order-box p {color:#edf0e7;font-size:.9rem}
+.calculator {
+  background:var(--white);color:var(--brown);padding:25px;
+  box-shadow:6px 6px 0 var(--pink);
+}
+.calculator label {display:block;font-size:.8rem;font-weight:800;margin:12px 0}
+.calculator select,.calculator input {
+  width:100%;padding:12px;border:1px solid #e5d4c1;
+  background:white;color:var(--brown);font:inherit;
+}
+.total {
+  display:flex;justify-content:space-between;align-items:center;
+  margin-top:20px;padding-top:17px;border-top:1px solid #e5d4c1;
+}
+.total strong {font-size:1.5rem}
+.calculator .btn {width:100%;margin-top:20px;text-align:center}
+.note {font-size:.7rem;color:var(--muted)!important}
+.contact-cards {display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.contact-card {
+  background:var(--white);border:1px solid #e5d4c1;
+  padding:25px;display:flex;align-items:center;gap:15px;
+  transition:.25s;
+}
+.contact-card:hover {transform:translateY(-4px)}
+.contact-icon {
+  background:#f5d5cf;width:52px;height:52px;
+  display:grid;place-items:center;font-size:1.5rem;flex-shrink:0;
+}
+.contact-card small {display:block;color:var(--muted);margin-bottom:6px}
+footer {background:var(--brown);color:white;padding:30px 0}
+.footer {
+  display:flex;justify-content:space-between;gap:20px;
+  align-items:center;flex-wrap:wrap;
+}
+footer small {color:#e3cbb6}
+.toast {
+  position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);
+  background:var(--brown);color:white;padding:15px 20px;
+  opacity:0;pointer-events:none;transition:.25s;z-index:30;
+  text-align:center;max-width:90%;
+}
+.toast.show {opacity:1;transform:translate(-50%,0)}
+.reveal {opacity:0;transform:translateY(22px);transition:.65s}
+.reveal.visible {opacity:1;transform:none}
+@media(max-width:760px) {
+  .links {
+    display:none;position:absolute;top:65px;left:5%;right:5%;
+    background:var(--white);padding:22px;box-shadow:0 10px 30px #47291d18;
+    flex-direction:column;
+  }
+  .links.open {display:flex}
+  .menu-btn {display:block}
+  .nav .btn {display:none}
+  .hero {padding-top:35px}
+  .hero-grid,.sauce-grid,.about-grid,.order-box {grid-template-columns:1fr}
+  .hero-photo {height:370px;order:-1}
+  .hero-grid {gap:35px}
+  .cards {grid-template-columns:1fr}
+  .card {display:grid;grid-template-columns:90px 1fr;gap:0 15px}
+  .card-emoji {grid-row:1/5;height:100%;min-height:110px;font-size:2.5rem}
+  .card small {margin-top:5px}
+  .card h3,.card p {margin:5px 0}
+  .pick {grid-column:1/3;margin-top:15px}
+  section {padding:60px 0}
+  .about-photo {height:350px;margin-right:10px}
+  .order-box {padding:25px 18px}
+  .contact-cards {grid-template-columns:1fr}
+  .sticker {width:85px;height:85px;font-size:.6rem}
+}
+@media(prefers-reduced-motion:reduce) {
+  *,*:before,*:after {scroll-behavior:auto!important;transition:none!important}
+  .reveal {opacity:1;transform:none}
+}
 </style>
 </head>
+
 <body>
-<nav><div class="wrap navin">
-  <a class="brand" href="#home">Churro<span>bär</span> ✿</a>
-  <div class="links" id="navLinks"><a href="#home">Home</a><a href="#pricelist">Pricelist</a><a href="#about">About us</a><a href="#contact">Contact</a><a href="#po">Pre-order ↗</a></div>
-  <a class="nav-cta" href="#po">Let’s order! ↗</a><button class="menu" id="menuBtn" aria-label="Buka menu">☰</button>
-</div></nav>
-<main>
-<section class="hero" id="home"><div class="wrap hero-grid">
-  <div class="hero-copy"><span class="eyebrow">୨୧ tiny treats, happy hearts ୨୧</span>
-    <h1>Small Bites,<br><em>Big Happiness.</em></h1>
-    <p>Kenalan sama <strong>Churrobär</strong> — churros berbentuk beruang yang gemas, manis, dan siap bikin harimu lebih happy. Lengkap dengan pilihan saus yang bikin tiap gigitan makin seru!</p>
-    <div class="hero-actions"><a class="btn" href="#po">Aku mau Churrobär! <span>↗</span></a><a class="btn secondary" href="#pricelist">Lihat menu ↓</a></div>
+<nav>
+  <div class="wrap nav">
+    <a class="logo" href="#home">Churro<span>bär.</span></a>
+    <div class="links" id="links">
+      <a href="#home">Home</a><a href="#menu">Pricelist</a>
+      <a href="#about">About Us</a><a href="#order">Pre-order</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="btn" href="#order">Get your bears ↗</a>
+    <button class="menu-btn" id="hamb" aria-label="Buka menu">☰</button>
   </div>
-  <div class="hero-art"><span class="spark s1">✳</span><div class="blob"><div class="product-emoji">🧸</div></div><div class="sticker">bear-shaped<br>churros!<small>made to make you smile</small></div><span class="spark s2">♡</span></div>
-</div></section>
-<section id="pricelist"><div class="wrap"><div class="section-head"><div class="kicker">a little something sweet</div><h2>Pick your happy bites ♡</h2><p>Beruang kecil, mood booster besar. Pilih paket favoritmu!</p></div>
-<div class="prices"><div class="price-grid">
-  <article class="price-card"><div class="emoji">🧸</div><h3>Mini Pack</h3><div class="price">Rp12.000</div><p>3 pcs Churrobär</p></article>
-  <article class="price-card"><span class="tag">FAVE!</span><div class="emoji">🍓</div><h3>Happy Pack</h3><div class="price">Rp18.000</div><p>5 pcs Churrobär</p></article>
-  <article class="price-card"><div class="emoji">🧸</div><h3>Big Hug Pack</h3><div class="price">Rp25.000</div><p>7 pcs Churrobär</p></article>
-</div><p class="note">Pengen satuan? 1 pcs = <strong>Rp4.000</strong> ✨</p></div>
-</div></section>
-<section id="about"><div class="wrap about-grid"><div class="about-card"><div class="bear"> ˶ᵔ ᵕ ᵔ˶ </div><strong>Made with love!</strong><p>Sweet bites make your day sweeter.</p></div><div class="about-copy"><div class="kicker">the story behind the bear</div><h2>Hi, we're Churrobär!</h2><p>Churrobär adalah usaha camilan churros berbentuk beruang yang dibuat untuk menghadirkan camilan manis dengan tampilan lucu dan harga yang ramah di kantong. Kami memilih nama <em>Churrobär</em> karena unik, mudah diingat, dan cute — pas banget dengan bentuk churros kami!</p><p>Churros kami dibuat dengan bahan yang mudah ditemukan dan disajikan dengan pilihan saus beragam rasa. Cocok dinikmati sebagai camilan manis, kapan pun kamu butuh little happiness.</p><div class="pill-row"><span class="pill">♡ Bear-shaped churros</span><span class="pill">♡ Affordable treats</span><span class="pill">♡ Sauce & sweetness</span></div></div></div></section>
-<section id="po"><div class="wrap"><div class="order"><div class="kicker">your sweet moment starts here</div><h2>Ready to adopt some bears? 🐻</h2><p>Isi form pre-order untuk pesan Churrobär. Jangan lupa cek lagi detail pesananmu sebelum submit, ya!</p><a class="btn" id="poLink" href="#" target="_blank" rel="noopener">Open pre-order form ↗</a><p style="font-size:.82rem;margin-top:16px;margin-bottom:0">Link Google Form bisa kamu pasang sendiri di bagian <code>CONFIG</code> pada coding di bawah.</p></div></div></section>
-<section id="contact"><div class="wrap"><div class="section-head"><div class="kicker">say hello!</div><h2>Let's talk, sweet tooth ♡</h2><p>Mau tanya-tanya soal pesanan? Hubungi kami lewat WhatsApp.</p></div><div class="contact-grid"><a class="contact-card" id="waLink" href="#" target="_blank" rel="noopener"><div class="contact-icon">💬</div><div><small>WhatsApp / Contact</small><strong>+62 851-6111-5876</strong></div><span style="margin-left:auto">↗</span></a><a class="contact-card" href="#po"><div class="contact-icon">📝</div><div><small>Want a sweet treat?</small><strong>Go to pre-order form</strong></div><span style="margin-left:auto">↗</span></a></div></div></section>
-</main>
-<footer><div class="wrap footerin"><div><div class="brand">Churrobär ✿</div><small>Small Bites, Big Happiness.</small></div><small>Made with ♡ for your little sweet moments.</small><a class="top" href="#home">Back to top ↑</a></div></footer>
-<div class="toast" id="toast">Link pre-order belum dipasang ✿</div>
+</nav>
+
+<header class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <div class="label">A LITTLE TREAT FOR YOUR DAY ✳</div>
+      <h1>A little bear,<br>a lot of <span>joy.</span></h1>
+      <p>Meet <b>Churrobär</b> — bear-shaped churros yang renyah, manis, dan gemas banget. Camilan kecil untuk bikin harimu terasa lebih happy!</p>
+      <div class="actions">
+        <a class="btn" href="#order">I want my bears ↗</a>
+        <a class="text-btn" href="#menu">Explore the menu ↓</a>
+      </div>
+    </div>
+    <div class="hero-photo reveal">
+      <img src="churros.jpg" alt="Churros berbentuk beruang dengan saus pink">
+      <div class="sticker">BEAR-Y<strong>DELICIOUS!</strong>♡</div>
+      <div class="caption">Tiny bears. Big happiness.</div>
+    </div>
+  </div>
+</header>
+
+<div class="ticker">✳ BEAR-SHAPED CHURROS　♡ LITTLE BITES, BIG SMILES　✳ MADE WITH LOVE　♡ BEAR-SHAPED CHURROS　✳</div>
+
+<section id="menu">
+  <div class="wrap">
+    <div class="heading reveal">
+      <div class="label">THE MENU</div>
+      <h2>Pick your <span style="color:var(--rose)">happy pack.</span></h2>
+      <p>Pilih paket favoritmu. Makin banyak bear, makin banyak happiness!</p>
+    </div>
+    <div class="cards">
+      <article class="card reveal">
+        <div class="card-emoji">🐻</div>
+        <small>A LITTLE SOMETHING</small>
+        <h3>Mini Pack</h3>
+        <div class="price">Rp12.000</div>
+        <p>3 pcs Churrobär</p>
+        <button class="pick" data-pack="3">Pilih paket ↗</button>
+      </article>
+      <article class="card reveal">
+        <div class="card-emoji">🍓</div>
+        <small>CROWD FAVOURITE</small>
+        <h3>Happy Pack</h3>
+        <div class="price">Rp18.000</div>
+        <p>5 pcs Churrobär</p>
+        <button class="pick" data-pack="5">Pilih paket ↗</button>
+      </article>
+      <article class="card reveal">
+        <div class="card-emoji">🧸</div>
+        <small>EXTRA HAPPY</small>
+        <h3>Big Hug Pack</h3>
+        <div class="price">Rp25.000</div>
+        <p>7 pcs Churrobär</p>
+        <button class="pick" data-pack="7">Pilih paket ↗</button>
+      </article>
+    </div>
+    <div class="single reveal"><span>Just want one little bear?</span><b>1 pcs — Rp4.000 ♡</b></div>
+  </div>
+</section>
+
+<section class="sauce">
+  <div class="wrap sauce-grid">
+    <div class="sauce-visual reveal" id="sauceVisual">🐻</div>
+    <div class="reveal">
+      <div class="label">A DIP OF HAPPINESS</div>
+      <h2 style="font:700 clamp(2.5rem,5vw,4rem)/1.1 'Playfair Display',serif">Choose your sweet mood.</h2>
+      <p style="color:var(--muted)">Klik pilihan saus untuk mengubah mood Churrobär kamu!</p>
+      <div class="sauce-buttons">
+        <button class="active" data-color="#f2a6a1" data-msg="Strawberry: sweet, soft & playful ♡">🍓 Strawberry</button>
+        <button data-color="#7b4b3a" data-msg="Chocolate: rich, cozy & classic ✦">🍫 Chocolate</button>
+        <button data-color="#e8d6a5" data-msg="Vanilla: soft, simple & sweet ♡">🍦 Vanilla</button>
+        <button data-color="#91a57a" data-msg="Matcha: calm, earthy & cool ✳">🍵 Matcha</button>
+      </div>
+      <p id="sauceMessage" class="sauce-message">Strawberry: sweet, soft & playful ♡</p>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about-photo reveal">
+      <img src="churros.jpg" alt="Produk bear-shaped churros Churrobär">
+    </div>
+    <div class="about reveal">
+      <div class="label">A LITTLE ABOUT US</div>
+      <h2>Not just a snack.<br><span style="color:var(--rose)">A happy moment.</span></h2>
+      <p>Churrobär adalah usaha camilan churros berbentuk beruang dengan pilihan saus beragam rasa.</p>
+      <p>Kami memilih nama Churrobär karena unik, mudah diingat, dan cocok dengan bentuk produk kami. Bahan yang digunakan mudah ditemukan, proses pembuatannya cukup sederhana, dan harganya ramah di kantong.</p>
+      <div class="values"><span>♡ Bear-shaped</span><span>✳ Sweet & fun</span><span>♡ Affordable</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="order" id="order">
+  <div class="wrap order-box reveal">
+    <div>
+      <div class="label" style="color:#f5b8b3">YOUR SWEET MOMENT STARTS HERE</div>
+      <h2>Ready to bring<br>some bears home?</h2>
+      <p>Pilih paket dan jumlahnya untuk menghitung estimasi harga. Kalau sudah siap, lanjutkan ke Google Form untuk mengirim pesanan.</p>
+      <p>Perhitungan di website ini hanya estimasi. Pesanan resmi tetap dikirim melalui form.</p>
+    </div>
+    <div class="calculator">
+      <label for="pack">PILIH PAKET</label>
+      <select id="pack">
+        <option value="12000">Mini Pack — 3 pcs</option>
+        <option value="18000">Happy Pack — 5 pcs</option>
+        <option value="25000">Big Hug Pack — 7 pcs</option>
+        <option value="4000">Satuan — 1 pcs</option>
+      </select>
+      <label for="qty">JUMLAH PAKET</label>
+      <input id="qty" type="number" value="1" min="1" max="99">
+      <div class="total"><span>Estimated total</span><strong id="total">Rp12.000</strong></div>
+      <button class="btn" id="formBtn">Continue to pre-order ↗</button>
+      <p class="note">Pastikan detail pesanan sudah benar sebelum submit form.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="heading reveal">
+      <div class="label">SAY HELLO!</div>
+      <h2>Let's make it <span style="color:var(--rose)">sweet.</span></h2>
+      <p>Mau tanya soal pesanan? Hubungi kami lewat WhatsApp!</p>
+    </div>
+    <div class="contact-cards">
+      <a class="contact-card reveal" id="wa" href="#" target="_blank" rel="noopener">
+        <div class="contact-icon">💬</div>
+        <div><small>WHATSAPP / CONTACT</small><b>+62 851-6111-5876</b></div>
+        <span style="margin-left:auto">↗</span>
+      </a>
+      <a class="contact-card reveal" href="#order">
+        <div class="contact-icon">📝</div>
+        <div><small>READY TO ORDER?</small><b>Go to pre-order form</b></div>
+        <span style="margin-left:auto">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap footer">
+  <div><div class="logo">Churro<span>bär.</span></div><small>Small Bites, Big Happiness ♡</small></div>
+  <small>Made with love for your sweet moments.</small>
+  <a href="#home">Back to top ↑</a>
+</div></footer>
+<div class="toast" id="toast"></div>
+
 <script>
-/* ======================= CONFIG =======================
-   1. Ganti URL di bawah dengan link Google Form kamu.
-   2. Nomor WhatsApp sudah diisi sesuai informasi yang diberikan.
-======================================================= */
+/* ========== CONFIG: EDIT BAGIAN INI ========== */
 const CONFIG = {
   googleFormUrl: "PASTE_GOOGLE_FORM_LINK_HERE",
   whatsappNumber: "6285161115876"
 };
-const poLink = document.getElementById('poLink');
-const waLink = document.getElementById('waLink');
-const toast = document.getElementById('toast');
-const formReady = CONFIG.googleFormUrl.startsWith('https://') && !CONFIG.googleFormUrl.includes('PASTE_');
-if(formReady){poLink.href=CONFIG.googleFormUrl;poLink.target='_blank';}
-waLink.href='https://wa.me/'+CONFIG.whatsappNumber+'?text='+encodeURIComponent('Halo Churrobär! Aku mau tanya tentang pre-order churros bear 🐻');
-poLink.addEventListener('click',e=>{if(!formReady){e.preventDefault();toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2600)}});
-document.getElementById('menuBtn').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
-document.querySelectorAll('#navLinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
+/* ============================================ */
+
+const $ = selector => document.querySelector(selector);
+const $$ = selector => [...document.querySelectorAll(selector)];
+
+const toast = $('#toast');
+let toastTimer;
+
+function showToast(message) {
+  toast.textContent = message;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 2800);
+}
+
+const formReady =
+  CONFIG.googleFormUrl.startsWith('https://') &&
+  !CONFIG.googleFormUrl.includes('PASTE_');
+
+$('#wa').href =
+  'https://wa.me/' + CONFIG.whatsappNumber +
+  '?text=' + encodeURIComponent('Halo Churrobär! Aku mau tanya tentang pre-order 🐻');
+
+$('#hamb').addEventListener('click', () => {
+  $('#links').classList.toggle('open');
+});
+
+$$('#links a').forEach(link => {
+  link.addEventListener('click', () => $('#links').classList.remove('open'));
+});
+
+// Kalkulator harga otomatis.
+function updateTotal() {
+  const price = Number($('#pack').value);
+  const qty = Math.max(1, Math.min(99, Number($('#qty').value) || 1));
+  $('#qty').value = qty;
+  $('#total').textContent = 'Rp' + (price * qty).toLocaleString('id-ID');
+}
+
+$('#pack').addEventListener('change', updateTotal);
+$('#qty').addEventListener('input', updateTotal);
+
+// Tombol pilih paket di bagian pricelist.
+$$('.pick').forEach(button => {
+  button.addEventListener('click', () => {
+    const packs = {'3':'12000','5':'18000','7':'25000'};
+    $('#pack').value = packs[button.dataset.pack];
+    updateTotal();
+    $('#order').scrollIntoView({behavior:'smooth'});
+    showToast('Paket dipilih! Atur jumlahnya di kalkulator ♡');
+  });
+});
+
+// Tombol Google Form.
+$('#formBtn').addEventListener('click', () => {
+  if (!formReady) {
+    showToast('Masukkan link Google Form di bagian CONFIG terlebih dahulu!');
+    return;
+  }
+  window.open(CONFIG.googleFormUrl, '_blank', 'noopener');
+});
+
+// Pilihan saus interaktif.
+$$('.sauce-buttons button').forEach(button => {
+  button.addEventListener('click', () => {
+    $$('.sauce-buttons button').forEach(b => b.classList.remove('active'));
+    button.classList.add('active');
+    $('#sauceVisual').style.background = button.dataset.color;
+    $('#sauceMessage').textContent = button.dataset.msg;
+  });
+});
+
+// Animasi saat bagian website terlihat.
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.12});
+  $$('.reveal').forEach(el => observer.observe(el));
+} else {
+  $$('.reveal').forEach(el => el.classList.add('visible'));
+}
+
+updateTotal();
 </script>
 </body>
 </html>
